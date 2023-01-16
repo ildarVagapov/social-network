@@ -1,0 +1,21 @@
+.nav {
+	grid-area: n;
+	background-color: burlywood;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+a {
+	text-decoration: none;
+	transition: all 0.3s ease 0s;
+	color: black;
+}
+a:hover {
+	color: white;
+}
+
+.active {
+	color: white;
+}
