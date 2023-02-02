@@ -11,13 +11,12 @@ const MyPosts = (props) => {
 
 	let newText = React.createRef()
 	let addPostBtn = () => {
-		props.addPost()
-		props.updateNewPostText('')
+		props.dispatch({ type: 'ADD-POST' })
 	}
 
 	let addOnChange = () => {
 		let text = newText.current.value
-		props.updateNewPostText(text)
+		props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text })
 	}
 	return (
 		<div>

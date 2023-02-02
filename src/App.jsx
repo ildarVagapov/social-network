@@ -17,10 +17,11 @@ function App(props) {
 					path='/profile'
 					element={
 						<Profile
-							updateNewPostText={props.updateNewPostText}
 							postsData={props.postsData}
-							addPost={props.addPost}
 							newValueText={props.newValueText}
+							dispatch={props.dispatch}
+						// updateNewPostText={props.updateNewPostText}
+						// addPost={props.addPost}
 						/>}
 				/>
 				<Route
