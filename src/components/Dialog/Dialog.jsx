@@ -18,13 +18,12 @@ const Dialog = (props) => {
 
 	const addMassegeLink = React.createRef()
 	const addBtnMassege = () => {
-		props.addMassege()
-		props.updateNewMassegeText('')
+		props.dispatch({ type: 'ADD-MASSEGE' })
 	}
 
 	const addOnChange = () => {
 		const text = addMassegeLink.current.value
-		props.updateNewMassegeText(text)
+		props.dispatch({ type: 'UPDATE-NEW-MASSEGE-TEXT', newText: text })
 	}
 
 	return (

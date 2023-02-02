@@ -36,24 +36,6 @@ let store = {
 	getState() {
 		return this._state
 	},
-	addMassege() {
-		const newMassege = {
-			id: 4,
-			massege: this._state.dialogPage.newValueTextMassege,
-		}
-		const newDialogItem = {
-			id: 4,
-			name: 'Ришат'
-		}
-		this._state.dialogPage.massegeData.push(newMassege)
-		this._state.dialogPage.dialogData.push(newDialogItem)
-		this._callSubscriber(this._state)
-	},
-	updateNewMassegeText(newText) {
-		this._state.dialogPage.newValueTextMassege = newText
-		this._callSubscriber(this._state)
-	},
-
 	dispatch(action) {
 		if (action.type === 'ADD-POST') {
 			const newPost = {
@@ -67,9 +49,42 @@ let store = {
 		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
 			this._state.pofilePage.newValueText = action.newText
 			this._callSubscriber(this._state)
+		} else if (action.type === 'ADD-MASSEGE') {
+			const newMassege = {
+				id: 4,
+				massege: this._state.dialogPage.newValueTextMassege,
+			}
+			const newDialogItem = {
+				id: 4,
+				name: 'Ришат'
+			}
+			this._state.dialogPage.massegeData.push(newMassege)
+			this._state.dialogPage.dialogData.push(newDialogItem)
+			this._state.dialogPage.newValueTextMassege = ''
+			this._callSubscriber(this._state)
+		} else if (action.type === 'UPDATE-NEW-MASSEGE-TEXT') {
+			this._state.dialogPage.newValueTextMassege = action.newText
+			this._callSubscriber(this._state)
 		}
 	}
 
+	// updateNewMassegeText(newText) {
+	// 	this._state.dialogPage.newValueTextMassege = newText
+	// 	this._callSubscriber(this._state)
+	// },
+	// addMassege() {
+	// 	const newMassege = {
+	// 		id: 4,
+	// 		massege: this._state.dialogPage.newValueTextMassege,
+	// 	}
+	// 	const newDialogItem = {
+	// 		id: 4,
+	// 		name: 'Ришат'
+	// 	}
+	// 	this._state.dialogPage.massegeData.push(newMassege)
+	// 	this._state.dialogPage.dialogData.push(newDialogItem)
+	// 	this._callSubscriber(this._state)
+	// },
 	// updateNewPostText(newText) {
 	// 	this._state.pofilePage.newValueText = newText
 	// 	this._callSubscriber(this._state)

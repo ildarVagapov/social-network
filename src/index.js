@@ -17,11 +17,7 @@ let rerenderEntireTree = (state) => {
 					massegeData={state.dialogPage.massegeData}
 					newValueText={state.pofilePage.newValueText}
 					newValueTextMassege={state.dialogPage.newValueTextMassege}
-					addMassege={store.addMassege.bind(store)}
-					updateNewMassegeText={store.updateNewMassegeText.bind(store)}
 					dispatch={store.dispatch.bind(store)}
-				// updateNewPostText={store.updateNewPostText.bind(store)}
-				// addPost={store.addPost.bind(store)}
 				/>
 			</BrowserRouter>
 		</React.StrictMode>
