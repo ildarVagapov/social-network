@@ -13,8 +13,7 @@
 .dialogs .active {
 	color: white;
 }
-.dialog {
-}
+
 .masseges {
 	display: flex;
 	flex-direction: column;
@@ -27,4 +26,8 @@
 
 button {
 	display: block;
+}
+
+.massege__item {
+	font-weight: 600;
 }

@@ -5,7 +5,6 @@ import s from './Dialog.module.css'
 
 
 const Dialog = (props) => {
-
 	const dialogElements = props.dialogData.map((d) => {
 		return (
 			<DialogItem name={d.name} id={d.id} />
@@ -18,9 +17,14 @@ const Dialog = (props) => {
 	})
 
 	const addMassegeLink = React.createRef()
-	const addMassege = () => {
+	const addBtnMassege = () => {
+		props.addMassege()
+		props.updateNewMassegeText('')
+	}
+
+	const addOnChange = () => {
 		const text = addMassegeLink.current.value
-		alert(text)
+		props.updateNewMassegeText(text)
 	}
 
 	return (
@@ -32,8 +36,8 @@ const Dialog = (props) => {
 				{massegeElements}
 			</div>
 			<div>
-				<textarea ref={addMassegeLink}></textarea>
-				<button onClick={addMassege} >add Massege</button>
+				<textarea onChange={addOnChange} ref={addMassegeLink} value={props.newValueTextMassege}></textarea>
+				<button onClick={addBtnMassege}>add Massege</button>
 			</div>
 		</div >
 
