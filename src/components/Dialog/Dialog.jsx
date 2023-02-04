@@ -2,6 +2,7 @@ import React from 'react'
 import DialogItem from './DialogItem/DialogItem'
 import MassegeItem from './MassegeItem/MassegeItem'
 import s from './Dialog.module.css'
+import { addMassegeAcrionCreate, updateNewMassegeActionCreator } from '../../redax/state'
 
 
 const Dialog = (props) => {
@@ -18,12 +19,12 @@ const Dialog = (props) => {
 
 	const addMassegeLink = React.createRef()
 	const addBtnMassege = () => {
-		props.dispatch({ type: 'ADD-MASSEGE' })
+		props.dispatch(addMassegeAcrionCreate())
 	}
 
 	const addOnChange = () => {
 		const text = addMassegeLink.current.value
-		props.dispatch({ type: 'UPDATE-NEW-MASSEGE-TEXT', newText: text })
+		props.dispatch(updateNewMassegeActionCreator())
 	}
 
 	return (
