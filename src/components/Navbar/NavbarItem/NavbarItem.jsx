@@ -11,5 +11,4 @@ const NavbarItem = (props) => {
 	)
 }
 
-
 export default NavbarItem;

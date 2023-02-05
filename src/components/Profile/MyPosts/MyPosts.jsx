@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
-import { addPostActionCreator, updateNewPostTextActionCreate } from '../../../redax/state'
+import { addPostActionCreator, updateNewPostTextActionCreate } from '../../../redax/reducerProfile'
 
 
 const MyPosts = (props) => {
@@ -18,7 +18,7 @@ const MyPosts = (props) => {
 
 	let addOnChange = () => {
 		let text = newText.current.value
-		props.dispatch(updateNewPostTextActionCreate())
+		props.dispatch(updateNewPostTextActionCreate(text))
 	}
 	return (
 		<div>

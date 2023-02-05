@@ -1,7 +1,7 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_MASSEGE = 'ADD-MASSEGE'
-const UPDATE_NEW_MASSEGE_TEXT = 'UPDATE-NEW-MASSEGE-TEXT'
+import { reducerDialog } from "./reducerDialog"
+import { reducerProfile } from "./reducerProfile"
+
+
 
 let store = {
 	_state: {
@@ -29,8 +29,6 @@ let store = {
 		sidebarData: [
 			{ page: 'Profile', to: "/profile" },
 			{ page: 'Masseges', to: "/dialog" },
-			{ page: 'J', to: "" },
-			{ page: 'S', to: "" },
 		]
 	},
 	_callSubscriber() {
@@ -41,62 +39,12 @@ let store = {
 	getState() {
 		return this._state
 	},
+
 	dispatch(action) {
-		if (action.type === ADD_POST) {
-			const newPost = {
-				id: 5,
-				massege: this._state.pofilePage.newValueText,
-				like: 0
-			}
-			this._state.pofilePage.post.push(newPost)
-			this._state.pofilePage.newValueText = ''
-			this._callSubscriber(this._state)
-		} else if (action.type === UPDATE_NEW_POST_TEXT) {
-			this._state.pofilePage.newValueText = action.newText
-			this._callSubscriber(this._state)
-		} else if (action.type === ADD_MASSEGE) {
-			const newMassege = {
-				id: 4,
-				massege: this._state.dialogPage.newValueTextMassege,
-			}
-			const newDialogItem = {
-				id: 4,
-				name: 'Ришат'
-			}
-			this._state.dialogPage.massegeData.push(newMassege)
-			this._state.dialogPage.dialogData.push(newDialogItem)
-			this._state.dialogPage.newValueTextMassege = ''
-			this._callSubscriber(this._state)
-		} else if (action.type === UPDATE_NEW_MASSEGE_TEXT) {
-			this._state.dialogPage.newValueTextMassege = action.newText
-			this._callSubscriber(this._state)
-		}
+		this._state.pofilePage = reducerProfile(this._state.pofilePage, action)
+		this._state.dialogPage = reducerDialog(this._state.dialogPage, action)
+		this._callSubscriber(this._state)
 	}
 }
 
-const addPostActionCreator = () => {
-	return {
-		type: ADD_POST
-	}
-}
-const updateNewPostTextActionCreate = () => {
-	return {
-		type: UPDATE_NEW_POST_TEXT
-	}
-}
-const addMassegeAcrionCreate = () => {
-	return {
-		type: ADD_MASSEGE
-	}
-}
-const updateNewMassegeActionCreator = () => {
-	return {
-		type: UPDATE_NEW_MASSEGE_TEXT
-	}
-}
-
-export { updateNewMassegeActionCreator }
-export { updateNewPostTextActionCreate }
-export { addMassegeAcrionCreate }
-export { addPostActionCreator }
 export default store
