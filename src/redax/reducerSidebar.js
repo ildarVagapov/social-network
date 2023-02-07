@@ -1,5 +1,12 @@
+const CLICK_NAV = 'CLICK_NAV'
 
-
-const reducerSidebar = () => {
-
+let initialState = {
+	sidebarData: [
+		{ page: 'Profile', to: "/profile" },
+		{ page: 'Masseges', to: "/dialog" },
+	]
 }
+const reducerSidebar = (state = initialState) => {
+	return state
+}
+export { reducerSidebar }

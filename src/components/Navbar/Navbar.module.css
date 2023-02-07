@@ -1,6 +1,6 @@
 .nav {
 	grid-area: n;
-	background-color: burlywood;
+	background-color: rgb(56, 46, 66);
 	padding: 20px;
 	display: flex;
 	flex-direction: column;

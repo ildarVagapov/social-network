@@ -1,11 +1,10 @@
 import { reducerDialog } from "./reducerDialog"
 import { reducerProfile } from "./reducerProfile"
-
-
+// import { reducerSidebar } from "./reducerSidebar"
 
 let store = {
 	_state: {
-		pofilePage: {
+		profilePage: {
 			post: [
 				{ id: '1', massege: 'hi 1', like: '1' },
 				{ id: '2', massege: 'hi pidr', like: '10' },
@@ -26,10 +25,13 @@ let store = {
 			],
 			newValueTextMassege: 'it-kamasutra'
 		},
-		sidebarData: [
-			{ page: 'Profile', to: "/profile" },
-			{ page: 'Masseges', to: "/dialog" },
-		]
+		sidebarNav: {
+			sidebarData: [
+				{ page: 'Profile', to: "/profile" },
+				{ page: 'Masseges', to: "/dialog" },
+			]
+		}
+
 	},
 	_callSubscriber() {
 	},
@@ -41,8 +43,9 @@ let store = {
 	},
 
 	dispatch(action) {
-		this._state.pofilePage = reducerProfile(this._state.pofilePage, action)
+		this._state.profilePage = reducerProfile(this._state.profilePage, action)
 		this._state.dialogPage = reducerDialog(this._state.dialogPage, action)
+		// reducerDialog(this._state.sidebarNav, action)
 		this._callSubscriber(this._state)
 	}
 }
