@@ -4,34 +4,23 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redax/redaxStore';
-// import store from './redax/store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
-	debugger
 	root.render(
 		<React.StrictMode>
 			<BrowserRouter>
-				<App
-					navbarData={state.sidebarNav.sidebarData}
-					postsData={state.profilePage.post}
-					dialogData={state.dialogPage.dialogData}
-					massegeData={state.dialogPage.massegeData}
-					newValueText={state.profilePage.newValueText}
-					newValueTextMassege={state.dialogPage.newValueTextMassege}
-					dispatch={store.dispatch.bind(store)}
-				/>
+				<Provider store={store}>
+					<App />
+				</Provider>
 			</BrowserRouter>
 		</React.StrictMode>
 	);
 }
+
 rerenderEntireTree(store.getState())
 store.subscribe(() => {
 	let state = store.getState()
 	rerenderEntireTree(state)
 })
-
-// команды git
-// git add .
-// git commit -m 'fixed'
-// git push

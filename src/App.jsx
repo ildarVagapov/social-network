@@ -1,35 +1,18 @@
 import './App.css';
-import Dialog from './components/Dialog/Dialog';
 import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
+import DialogContainer from './components/Dialog/DialogContainer';
+import NavbarContainer from './components/Navbar/NavbarContainer';
 import { Routes, Route } from 'react-router-dom';
 
-function App(props) {
+function App() {
 	return (
 		<div className="app-wrapper" >
 			<Header />
-			<Navbar navbarData={props.navbarData} />
+			<NavbarContainer />
 			<Routes>
-				<Route
-					path='/profile'
-					element={
-						<Profile
-							postsData={props.postsData}
-							newValueText={props.newValueText}
-							dispatch={props.dispatch}
-						/>}
-				/>
-				<Route
-					path='/dialog/*'
-					element={
-						<Dialog
-							dialogData={props.dialogData}
-							massegeData={props.massegeData}
-							dispatch={props.dispatch}
-							newValueTextMassege={props.newValueTextMassege}
-						/>}
-				/>
+				<Route path='/profile' element={<Profile />} />
+				<Route path='/dialog/*' element={<DialogContainer />} />
 			</Routes>
 		</div >
 	);

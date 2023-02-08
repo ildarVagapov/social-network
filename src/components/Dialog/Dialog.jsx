@@ -2,7 +2,6 @@ import React from 'react'
 import DialogItem from './DialogItem/DialogItem'
 import MassegeItem from './MassegeItem/MassegeItem'
 import s from './Dialog.module.css'
-import { addMassegeActionCreate, updateNewMassegeActionCreator } from '../../redax/reducerDialog'
 
 
 const Dialog = (props) => {
@@ -19,12 +18,12 @@ const Dialog = (props) => {
 
 	const addMassegeLink = React.createRef()
 	const addBtnMassege = () => {
-		props.dispatch(addMassegeActionCreate())
+		props.addMassege()
 	}
 
 	const addOnChange = () => {
 		const text = addMassegeLink.current.value
-		props.dispatch(updateNewMassegeActionCreator(text))
+		props.updateNewMassege(text)
 	}
 
 	return (
