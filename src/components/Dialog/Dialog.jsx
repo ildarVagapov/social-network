@@ -39,7 +39,6 @@ const Dialog = (props) => {
 				<button onClick={addBtnMassege}>add Massege</button>
 			</div>
 		</div >
-
 	)
 }
 

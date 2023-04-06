@@ -1,32 +1,26 @@
-import { addMassegeActionCreate, updateNewMassegeActionCreator } from '../../redax/reducerDialog'
-import StoreContext from '../../storeContex'
+import { connect } from 'react-redux'
+import { addMassegeActionCreate, updateNewMassegeActionCreator } from '../../redux/reducerDialog'
 import Dialog from './Dialog'
 
-const DialogContainer = () => {
+
+let mapStateToProps = (state) => {
 	return (
-		<StoreContext.Consumer>
-			{
-				(store) => {
-					let state = store.getState()
-					const addBtnMassege = () => {
-						store.dispatch(addMassegeActionCreate())
-					}
-					const addOnChange = (text) => {
-						store.dispatch(updateNewMassegeActionCreator(text))
-					}
-					return (
-						<Dialog
-							addMassege={addBtnMassege}
-							updateNewMassege={addOnChange}
-							dialogData={state.dialogPage.dialogData}
-							massegeData={state.dialogPage.massegeData}
-							newValueTextMassege={state.dialogPage.newValueTextMassege}
-						/>
-					)
-				}
-			}
-		</StoreContext.Consumer>
+		{
+			dialogData: state.dialogPage.dialogData,
+			massegeData: state.dialogPage.massegeData,
+			newValueTextMassege: state.dialogPage.newValueTextMassege
+		}
 	)
 }
+let mapDispatchToProps = (dispatch) => {
+	return (
+		{
+			addMassege: () => { dispatch(addMassegeActionCreate()) },
+			updateNewMassege: (text) => { dispatch(updateNewMassegeActionCreator(text)) }
+		}
+	)
+}
+
+const DialogContainer = connect(mapStateToProps, mapDispatchToProps)(Dialog);
 
 export default DialogContainer

@@ -1,9 +1,10 @@
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import DialogContainer from './components/Dialog/DialogContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
-import { Routes, Route } from 'react-router-dom';
+import UserContainer from './components/User/UserContainer';
+import './App.css';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 			<Routes>
 				<Route path='/profile' element={<Profile />} />
 				<Route path='/dialog/*' element={<DialogContainer />} />
+				<Route path='/user' element={<UserContainer />} />
 			</Routes>
 		</div >
 	);

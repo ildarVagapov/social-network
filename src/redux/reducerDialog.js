@@ -26,13 +26,17 @@ const reducerDialog = (state = initialState, action) => {
 				id: 4,
 				name: 'Ришат'
 			}
-			state.massegeData.push(newMassege)
-			state.dialogData.push(newDialogItem)
-			state.newValueTextMassege = ''
-			return state
+			return {
+				...state,
+				massegeData: [...state.massegeData, newMassege],
+				dialogData: [...state.dialogData, newDialogItem],
+				newValueTextMassege: ''
+			}
 		case UPDATE_NEW_MASSEGE_TEXT:
-			state.newValueTextMassege = action.newText
-			return state
+			return {
+				...state,
+				newValueTextMassege: action.newText
+			}
 		default:
 			return state
 	}

@@ -18,16 +18,21 @@ const reducerProfile = (state = initialState, action) => {
 				massege: state.newValueText,
 				like: 0
 			}
-			state.post.push(newPost)
-			state.newValueText = ''
-			return state
+			return {
+				...state,
+				post: [...state.post, newPost],
+				newValueText: ''
+			}
 		case UPDATE_NEW_POST_TEXT:
-			state.newValueText = action.newText
-			return state
+			return {
+				...state,
+				newValueText: action.newText
+			}
 		default:
 			return state
 	}
 }
+
 
 const addPostActionCreator = () => {
 	return {
