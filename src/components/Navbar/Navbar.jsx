@@ -2,9 +2,9 @@ import s from './Navbar.module.css'
 import NavbarItem from './NavbarItem/NavbarItem';
 
 const Navbar = (props) => {
-	const navbarItem = props.navbarData.map((n) => {
+	const navbarItem = props.navbarData.map((n, i) => {
 		return (
-			<NavbarItem page={n.page} to={n.to} />
+			<NavbarItem key={i} page={n.page} to={n.to} />
 		)
 	})
 

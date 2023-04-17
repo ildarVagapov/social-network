@@ -8,7 +8,7 @@ let initialState = {
 	users: [],
 	pageSize: 5,
 	totalUsersCount: 0,
-	currentPage: 1
+	currentPage: 4
 }
 
 const reducerUser = (state = initialState, action) => {
@@ -39,6 +39,7 @@ const reducerUser = (state = initialState, action) => {
 			return {
 				...state,
 				users: action.user
+				// users: 
 			}
 		case SET_CURRENT_PAGE:
 			return {
