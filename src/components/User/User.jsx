@@ -1,5 +1,5 @@
+import { NavLink } from 'react-router-dom'
 import s from './User.module.css'
-
 
 const User = (props) => {
 
@@ -21,10 +21,12 @@ const User = (props) => {
 				props.usersData.map((user, i) => {
 					return <div key={i} className={s.userWrapper}>
 						<div className={s.userInfo}>
-							<img alt='' src={
-								user.photos.small != null ? user.photos.small
-									: 'https://sun9-west.userapi.com/sun9-66/s/v1/ig2/PaW15cxZ95bNMkARIWRNH0Rvl4q1DOtmm9Zfdn2dk5qiVOtuI_TI7XOsQ7EpTuffyNuuSlSGlqrWq7A3EvNki2kq.jpg?size=1440x1919&quality=95&type=albumuserIcon'}
-							/>
+							<NavLink to={'/profile'}>
+								<img alt='' src={
+									user.photos.small != null ? user.photos.small
+										: 'https://sun9-west.userapi.com/sun9-66/s/v1/ig2/PaW15cxZ95bNMkARIWRNH0Rvl4q1DOtmm9Zfdn2dk5qiVOtuI_TI7XOsQ7EpTuffyNuuSlSGlqrWq7A3EvNki2kq.jpg?size=1440x1919&quality=95&type=albumuserIcon'}
+								/>
+							</NavLink>
 							<div>
 								<span>{user.name}</span>
 								<span>{user.status}</span>
