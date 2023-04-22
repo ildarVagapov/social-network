@@ -12,4 +12,5 @@ let reducers = combineReducers({
 })
 let store = legacy_createStore(reducers)
 
+console.log(store.getState())
 export default store
